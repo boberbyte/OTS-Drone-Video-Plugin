@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "OTS-Drone-Video-Plugin"
+version = "0.1.0"
+description = "A drone's live video as a marker on the map in OpenTAKServer"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "boberbyte" }]
+# No dependencies of its own: pika, pyyaml and flask are already in the
+# OpenTAKServer venv. The video is received by MediaMTX, which OpenTAKServer runs.
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/boberbyte/OTS-Drone-Video-Plugin#readme"
+Repository = "https://github.com/boberbyte/OTS-Drone-Video-Plugin"
+
+[project.entry-points."opentakserver.plugin"]
+ots_drone_video_plugin = "ots_drone_video_plugin.app:DroneVideoPlugin"
+
+[tool.setuptools]
+packages = ["ots_drone_video_plugin"]
